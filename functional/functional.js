@@ -103,13 +103,29 @@ function _go(arg) {
   return _pipe.apply(null, fns)(arg);
 }
 
+//object type check
 function _is_object(obj) {
   return typeof obj == "object" && !!obj;
 }
 
+//return object keys
 function _keys(obj) {
   return _is_object(obj) ? Object.keys(obj) : [];
 }
 
-var _map = _curryr(_map),
-  _filter = _curryr(_filter);
+//return object values
+function _values(data) {
+  return _map(data, _identity);
+}
+
+//return object specific property
+function _pluck(data, key) {
+  return _map(data, _get(key));
+}
+
+function _identity(val) {
+  return val;
+}
+
+// var _map = _curryr(_map),
+//   _filter = _curryr(_filter);
