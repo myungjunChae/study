@@ -127,5 +127,18 @@ function _identity(val) {
   return val;
 }
 
+function _negate(func) {
+  return function(val) {
+    return !func(val);
+  };
+}
+
+function _reject(data, predi) {
+  return _filter(data, _negate(predi));
+}
+
+//it can work when curryr is applied
+//let _compact = _filter(_identity);
+
 // var _map = _curryr(_map),
 //   _filter = _curryr(_filter);

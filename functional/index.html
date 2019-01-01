@@ -16,10 +16,28 @@
       ];
     </script>
     <script>
-      let temp1 = {
-        test: "test"
-      };
-      let temp2 = {};
+      // find
+
+      function _find(list, predi) {
+        let keys = _keys(list);
+        for (let i = 0, len = keys.length; i < len; i++) {
+          let val = list[keys[i]];
+          if (predi(val)) return val;
+        }
+      }
+
+      function _findIndex(list, predi) {
+        let keys = _keys(list);
+        for (let i = 0, len = keys.length; i < len; i++) {
+          if (predi(list[keys[i]])) return i;
+        }
+      }
+
+      console.log(
+        _findIndex(users, function(user) {
+          return user.age == 11;
+        })
+      );
     </script>
   </body>
 </html>
