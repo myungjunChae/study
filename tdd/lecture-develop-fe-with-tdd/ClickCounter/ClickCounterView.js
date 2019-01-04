@@ -23,5 +23,6 @@ App.ClickCounterView = (clickCounter, options) => {
 
 App.ClickCounterView.messages = {
   noClickCounter: "clickCounter를 주입해야합니다.",
-  noUpdateEl: "updateEl를 주입해야합니다."
+  noUpdateEl: "updateEl를 주입해야합니다.",
+  noTriggerEl: "triggerEl를 주입해야합니다."
 };
