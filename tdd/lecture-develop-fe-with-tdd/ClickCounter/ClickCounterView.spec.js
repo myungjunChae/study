@@ -1,9 +1,10 @@
 describe("App.ClickCountView 모듈의", () => {
   let updateEl, triggerEl, clickCounter, view;
   beforeEach(() => {
+    const data = { value: 0 };
     updateEl = document.createElement("span");
     triggerEl = document.createElement("button");
-    clickCounter = App.ClickCounter();
+    clickCounter = App.ClickCounter(data);
     view = App.ClickCounterView(clickCounter, { updateEl, triggerEl });
   });
 
@@ -27,9 +28,9 @@ describe("App.ClickCountView 모듈의", () => {
 
   describe("increaseAndUpdateView()는", () => {
     it("ClickCounter의 increase를 실행한다", () => {
-      spyOn(clickCounter, "increase");
+      spyOn(clickCounter, "count");
       view.increaseAndUpdateView();
-      expect(clickCounter.increase).toHaveBeenCalled();
+      expect(clickCounter.count).toHaveBeenCalled();
     });
     it("updateView를 실행한다", () => {
       spyOn(view, "updateView");
